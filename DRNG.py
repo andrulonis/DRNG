@@ -67,15 +67,14 @@ def main():
 
     root = Tk()
     root.title("DRNG")
-    frm = Frame(root)
-    frm.grid()
-    frm.config(border=50, borderwidth=60)
+    root.grid()
+    root.config(border=50)
     i = 0
     selected_class = StringVar(root)
     for dwarf_class in DWARF_CLASSES:
-        Radiobutton(frm, text=dwarf_class, value=dwarf_class, indicatoron=0, variable=selected_class).grid(column=i, row=0, padx=40)
+        Radiobutton(root, text=dwarf_class, value=dwarf_class, indicatoron=0, variable=selected_class).grid(column=i, row=0, padx=40, pady=40)
         i += 1
-    #Button(frm, text="Randomise loadout", command=randomise_loadout("gunner", data)).grid(column=3, row=5)
+    Button(root, text="Randomise loadout", command=lambda : randomise_loadout(selected_class, data)).grid(column=1, row=1, columnspan=2)
     root.mainloop()
 
     #print(randomise_loadout("gunner", data).primary.overclock)
