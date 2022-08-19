@@ -61,23 +61,38 @@ def randomise_loadout(dwarf_class, data):
 
     return Loadout(primary_weapon, secondary_weapon, first_gadget, second_gadget, grenade, pickaxe)
 
+def display_loadout(selected_class, data, root):
+    loadout = randomise_loadout(selected_class, data)
+    Label(root, text=loadout.primary.name).grid(column=1, row=2, padx=20, pady=20)
+    Label(root, text=loadout.primary.overclock + " " + loadout.primary.mods_pattern).grid(column=1, row=3, padx=20, pady=20) #TODO: fix array to print
+
 def main():
     fp = open("data.json")
     data = json.load(fp)
 
     root = Tk()
     root.title("DRNG")
+    root.resizable(False, False)
+    root.geometry("800x500")
     root.grid()
-    root.config(border=50)
-    i = 0
-    selected_class = StringVar(root)
-    for dwarf_class in DWARF_CLASSES:
-        Radiobutton(root, text=dwarf_class, value=dwarf_class, indicatoron=0, variable=selected_class).grid(column=i, row=0, padx=40, pady=40)
-        i += 1
-    Button(root, text="Randomise loadout", command=lambda : randomise_loadout(selected_class, data)).grid(column=1, row=1, columnspan=2)
-    root.mainloop()
+    root.grid_columnconfigure((0, 1, 2, 3), weight=1)
+    selected_class = StringVar(root, "gunner")
 
-    #print(randomise_loadout("gunner", data).primary.overclock)
+    gunner_icon=PhotoImage(file="./icons/gunner_icon.png")
+    scout_icon=PhotoImage(file="./icons/scout_icon.png")
+    engineer_icon=PhotoImage(file="./icons/engineer_icon.png")
+    driller_icon=PhotoImage(file="./icons/driller_icon.png")
+    Radiobutton(root, value="gunner", image=gunner_icon, indicatoron=0, variable=selected_class).grid(column=0, row=0, padx=40, pady=40) #,borderwidth=0, ).grid(column=0, row=0, padx=40, pady=40)
+    Radiobutton(root, value="scout", image=scout_icon, indicatoron=0, variable=selected_class).grid(column=1, row=0, padx=40, pady=40)
+    Radiobutton(root, value="engineer", image=engineer_icon, indicatoron=0, variable=selected_class).grid(column=2, row=0, padx=40, pady=40)
+    Radiobutton(root, value="driller", image=driller_icon, indicatoron=0, variable=selected_class).grid(column=3, row=0, padx=40, pady=40)
+
+    Button(root, text="Randomise loadout for selected class", command=lambda : display_loadout(selected_class.get(), data, root)).grid(column=1, row=1, padx=40, pady=40)
+    Button(root, text="Randomise class and loadout", command=lambda : display_loadout(DWARF_CLASSES[randrange(len(DWARF_CLASSES))], data, root)).grid(column=2, row=1, padx=40, pady=40)
+
+
+
+    root.mainloop()
 
     fp.close()
 
