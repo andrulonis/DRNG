@@ -4,19 +4,22 @@
             {
                 "name": "\"Lead Storm\" Powered Minigun",
                 "overclocks": ["A Little More Oomph!", "Thinned Drum Walls", "Burning Hell", "Compact Feed Mechanism", "Exhaust Vectoring", "Bullet Hell", "Lead Storm"],
-                "mods_pattern": [3, 2, 3, 3, 3]
+                "mods_pattern": [3, 2, 3, 3, 3],
+                "image": "./resources/images/minigun.png"
             },
             
             {
                 "name": "\"Thunderhead\" Heavy Autocannon",
                 "overclocks": ["Composite Drums", "Splintering Shells", "Carpet Bomber", "Combat Mobility", "Big Bertha", "Neurotoxin Payload"],
-                "mods_pattern": [3, 3, 3, 2, 3]
+                "mods_pattern": [3, 3, 3, 2, 3],
+                "image": "./resources/images/autocannon.png"
             },
 
             {
                 "name": "\"Hurricane\" Guided Rocket System",
                 "overclocks": ["Manual Guidance Cutoff", "Overtuned Feed Mechanism", "Fragmentation Missiles", "Plasma Burster Missiles", "Minelayer System", "Jet Fuel Homebrew", "Salvo Module"],
-                "mods_pattern": [3, 2, 2, 2, 3]
+                "mods_pattern": [3, 2, 2, 2, 3],
+                "image": "./resources/images/rocket_launcher.png"
             }
         ],
 
@@ -24,30 +27,35 @@
             {
                 "name": "\"Bulldog\" Heavy Revolver",
                 "overclocks": ["Chain Hit", "Homebrew Powder", "Volatile Bullets", "Six Shooter", "Elephant Rounds", "Magic Bullets"],
-                "mods_pattern": [2, 3, 3, 2, 2]
+                "mods_pattern": [2, 3, 3, 2, 2],
+                "image": "./resources/images/revolver.png"
             },
 
             {
                 "name": "BRT7 Burst Fire Gun",
                 "overclocks": ["Composite Casings", "Full Chamber Seal", "Compact Mags", "Experimental Rounds", "Electro Minelets", "Micro Flechettes", "Lead Spray"],
-                "mods_pattern": [3, 3, 2, 3, 2]
+                "mods_pattern": [3, 3, 2, 3, 2],
+                "image": "./resources/images/brt7.png"
             },
 
             {
                 "name": "ArmsKore Coil Gun",
                 "overclocks": ["Re-atomizer", "Ultra-Magnetic Coils", "Backfeeding Module", "The Mole", "Hellfire", "Triple-Tech Chambers"],
-                "mods_pattern": [3, 3, 2, 2, 3]
+                "mods_pattern": [3, 3, 2, 2, 3],
+                "image": "./resources/images/coilgun.png"
             }
         ],
 
         "first_gadget": {
             "name": "Zipline Launcher",
-            "mods_pattern": [3, 1, 2]
+            "mods_pattern": [3, 1, 2],
+            "image": "./resources/images/zipline.png"
         },
 
         "second_gadget": {
             "name": "Shield Generator",
-            "mods_pattern": [2, 2, 3]
+            "mods_pattern": [2, 2, 3],
+            "image": "./resources/images/shield.png"
         },
 
         "grenades": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"]
