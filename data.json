@@ -58,7 +58,10 @@
             "image": "./resources/images/shield.png"
         },
 
-        "grenades": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"]
+        "grenades": {
+            "names": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"],
+            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
+        }
     },
 
     "scout": {
