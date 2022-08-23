@@ -74,5 +74,19 @@
 
     "driller": {
         
-    }
+    },
+
+    "pickaxe": {
+        "mods_pattern": [1, 3],
+        "image": "./resources/images/pickaxe.png"
+    },
+
+    "armor": {
+        "mods_pattern": [3, 2, 1, 3],
+        "image": "./resources/images/armor.png"
+    },
+
+    "passive_perks": ["Born Ready", "Deep Pockets", "Elemental Insulation", "Friendly", "It's a Bug Thing", "Resupplier", "Second Wind", "Strong Arm", "Sweet Tooth", "Thorns", "Unstoppable", "Vampire", "Veteran Depositor"],
+
+    "active_perks": ["Beast Master", "Berzerker", "Dash", "Field Medic", "Heightened Senses", "Hover Boots", "Iron Will", "See You In Hell", "Shield Link"]
 }
