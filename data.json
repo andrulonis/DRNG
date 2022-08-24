@@ -124,7 +124,7 @@
         },
 
         "grenades": {
-            "names": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"],
+            "names": ["Sticky Grenade", "Incendiary Grenade", "Cluster Grenade"],
             "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
         }
     },
@@ -132,65 +132,65 @@
     "engineer": {
         "primaries": [
             {
-                "name": "\"Lead Storm\" Powered Minigun",
-                "overclocks": ["A Little More Oomph!", "Thinned Drum Walls", "Burning Hell", "Compact Feed Mechanism", "Exhaust Vectoring", "Bullet Hell", "Lead Storm"],
-                "mods_pattern": [3, 2, 3, 3, 3],
-                "image": "./resources/images/minigun.png"
+                "name": "\"Warthog\" Auto 210",
+                "overclocks": ["Stunner", "Light-Weight Magazines", "Magnetic Pellet Alignment", "Cycle Overload", "Mini Shells"],
+                "mods_pattern": [2, 3, 3, 2, 2],
+                "image": "./resources/images/shotgun.png"
             },
             
             {
-                "name": "\"Thunderhead\" Heavy Autocannon",
-                "overclocks": ["Composite Drums", "Splintering Shells", "Carpet Bomber", "Combat Mobility", "Big Bertha", "Neurotoxin Payload"],
-                "mods_pattern": [3, 3, 3, 2, 3],
-                "image": "./resources/images/autocannon.png"
+                "name": "\"Stubby\" Voltaic SMG",
+                "overclocks": ["Super-Slim Rounds", "Well Oiled Machine", "EM Refire Booster", "Light-Weight Rounds", "Turret Arc", "Turret EM Discharge"],
+                "mods_pattern": [3, 3, 2, 2, 2],
+                "image": "./resources/images/stubby.png"
             },
-
+            
             {
-                "name": "\"Hurricane\" Guided Rocket System",
-                "overclocks": ["Manual Guidance Cutoff", "Overtuned Feed Mechanism", "Fragmentation Missiles", "Plasma Burster Missiles", "Minelayer System", "Jet Fuel Homebrew", "Salvo Module"],
-                "mods_pattern": [3, 2, 2, 2, 3],
-                "image": "./resources/images/rocket_launcher.png"
+                "name": "LOK-1 Smart Rifle",
+                "overclocks": ["Eraser", "Armor Break Module", "Explosive Chemical Rounds", "Seeker Rounds", "Executioner", "Neuro-Lasso"],
+                "mods_pattern": [2, 3, 3, 2, 3],
+                "image": "./resources/images/lok1.png"
             }
         ],
 
         "secondaries": [
             {
-                "name": "\"Bulldog\" Heavy Revolver",
-                "overclocks": ["Chain Hit", "Homebrew Powder", "Volatile Bullets", "Six Shooter", "Elephant Rounds", "Magic Bullets"],
-                "mods_pattern": [2, 3, 3, 2, 2],
-                "image": "./resources/images/revolver.png"
+                "name": "Deepcore 40mm PGL",
+                "overclocks": ["Clean Sweep", "Pack Rat", "Compact Rounds", "RJ250 Compound", "Fat Boy", "Hyper Propellant"],
+                "mods_pattern": [3, 2, 3, 3, 3],
+                "image": "./resources/images/grenade_launcher.png"
             },
 
             {
-                "name": "BRT7 Burst Fire Gun",
-                "overclocks": ["Composite Casings", "Full Chamber Seal", "Compact Mags", "Experimental Rounds", "Electro Minelets", "Micro Flechettes", "Lead Spray"],
-                "mods_pattern": [3, 3, 2, 3, 2],
-                "image": "./resources/images/brt7.png"
+                "name": "Breach Cutter",
+                "overclocks": ["Light-Weight Cases", "Roll Control", "Stronger Plasma Current", "Return to Sender", "High Voltage Crossover", "Spinning Death", "Inferno"],
+                "mods_pattern": [2, 3, 2, 2, 3],
+                "image": "./resources/images/breach.png"
             },
 
             {
-                "name": "ArmsKore Coil Gun",
-                "overclocks": ["Re-atomizer", "Ultra-Magnetic Coils", "Backfeeding Module", "The Mole", "Hellfire", "Triple-Tech Chambers"],
-                "mods_pattern": [3, 3, 2, 2, 3],
-                "image": "./resources/images/coilgun.png"
+                "name": "Shard Diffractor",
+                "overclocks": ["Efficiency Tweaks", "Automated Beam Controller", "Feedback Loop", "Volatile Impact Reactor", "Plastcrete Catalyst", "Overdrive Booster"],
+                "mods_pattern": [3, 2, 2, 2, 3],
+                "image": "./resources/images/shard.png"
             }
         ],
 
         "first_gadget": {
-            "name": "Zipline Launcher",
-            "mods_pattern": [3, 1, 2],
-            "image": "./resources/images/zipline.png"
+            "name": "Platform Gun",
+            "mods_pattern": [3, 1, 3],
+            "image": "./resources/images/platform.png"
         },
 
         "second_gadget": {
-            "name": "Shield Generator",
-            "mods_pattern": [2, 2, 3],
-            "image": "./resources/images/shield.png"
+            "name": "LMG Gun Platform",
+            "mods_pattern": [2, 3, 3, 2],
+            "image": "./resources/images/turret.png"
         },
 
         "grenades": {
-            "names": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"],
-            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
+            "names": ["L.U.R.E.", "Plasma Burster", "Proximity Mine"],
+            "images": ["./resources/images/lure.png", "./resources/images/plasma.png", "./resources/images/mine.png"]
         }
     },
 
