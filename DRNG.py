@@ -115,7 +115,7 @@ def display_loadout(selected_class, data, root, loadout_labels):
     loadout_labels.append(grenade_image_label := Label(loadout_frame, image=grenade_image))
     grenade_image_label.grid(column=1, row=4, padx=10, pady=10)
 
-    loadout_labels.append(pickaxe_label := Label(loadout_frame, text= "Armor\n" + " ".join(map(str, loadout.armor))))
+    loadout_labels.append(pickaxe_label := Label(loadout_frame, text= "Armor Rig\n" + " ".join(map(str, loadout.armor))))
     pickaxe_label.grid(column=2, row=4, padx=10, pady=10)
 
     global armor_image

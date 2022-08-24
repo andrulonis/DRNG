@@ -59,21 +59,204 @@
         },
 
         "grenades": {
-            "names": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"],
+            "names": ["Sticky Grenade", "Incendiary Grenade", "Cluster Grenade"],
             "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
         }
     },
 
     "scout": {
-        
+        "primaries": [
+            {
+                "name": "\"Lead Storm\" Powered Minigun",
+                "overclocks": ["A Little More Oomph!", "Thinned Drum Walls", "Burning Hell", "Compact Feed Mechanism", "Exhaust Vectoring", "Bullet Hell", "Lead Storm"],
+                "mods_pattern": [3, 2, 3, 3, 3],
+                "image": "./resources/images/minigun.png"
+            },
+            
+            {
+                "name": "\"Thunderhead\" Heavy Autocannon",
+                "overclocks": ["Composite Drums", "Splintering Shells", "Carpet Bomber", "Combat Mobility", "Big Bertha", "Neurotoxin Payload"],
+                "mods_pattern": [3, 3, 3, 2, 3],
+                "image": "./resources/images/autocannon.png"
+            },
+
+            {
+                "name": "\"Hurricane\" Guided Rocket System",
+                "overclocks": ["Manual Guidance Cutoff", "Overtuned Feed Mechanism", "Fragmentation Missiles", "Plasma Burster Missiles", "Minelayer System", "Jet Fuel Homebrew", "Salvo Module"],
+                "mods_pattern": [3, 2, 2, 2, 3],
+                "image": "./resources/images/rocket_launcher.png"
+            }
+        ],
+
+        "secondaries": [
+            {
+                "name": "\"Bulldog\" Heavy Revolver",
+                "overclocks": ["Chain Hit", "Homebrew Powder", "Volatile Bullets", "Six Shooter", "Elephant Rounds", "Magic Bullets"],
+                "mods_pattern": [2, 3, 3, 2, 2],
+                "image": "./resources/images/revolver.png"
+            },
+
+            {
+                "name": "BRT7 Burst Fire Gun",
+                "overclocks": ["Composite Casings", "Full Chamber Seal", "Compact Mags", "Experimental Rounds", "Electro Minelets", "Micro Flechettes", "Lead Spray"],
+                "mods_pattern": [3, 3, 2, 3, 2],
+                "image": "./resources/images/brt7.png"
+            },
+
+            {
+                "name": "ArmsKore Coil Gun",
+                "overclocks": ["Re-atomizer", "Ultra-Magnetic Coils", "Backfeeding Module", "The Mole", "Hellfire", "Triple-Tech Chambers"],
+                "mods_pattern": [3, 3, 2, 2, 3],
+                "image": "./resources/images/coilgun.png"
+            }
+        ],
+
+        "first_gadget": {
+            "name": "Zipline Launcher",
+            "mods_pattern": [3, 1, 2],
+            "image": "./resources/images/zipline.png"
+        },
+
+        "second_gadget": {
+            "name": "Shield Generator",
+            "mods_pattern": [2, 2, 3],
+            "image": "./resources/images/shield.png"
+        },
+
+        "grenades": {
+            "names": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"],
+            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
+        }
     },
 
     "engineer": {
-        
+        "primaries": [
+            {
+                "name": "\"Lead Storm\" Powered Minigun",
+                "overclocks": ["A Little More Oomph!", "Thinned Drum Walls", "Burning Hell", "Compact Feed Mechanism", "Exhaust Vectoring", "Bullet Hell", "Lead Storm"],
+                "mods_pattern": [3, 2, 3, 3, 3],
+                "image": "./resources/images/minigun.png"
+            },
+            
+            {
+                "name": "\"Thunderhead\" Heavy Autocannon",
+                "overclocks": ["Composite Drums", "Splintering Shells", "Carpet Bomber", "Combat Mobility", "Big Bertha", "Neurotoxin Payload"],
+                "mods_pattern": [3, 3, 3, 2, 3],
+                "image": "./resources/images/autocannon.png"
+            },
+
+            {
+                "name": "\"Hurricane\" Guided Rocket System",
+                "overclocks": ["Manual Guidance Cutoff", "Overtuned Feed Mechanism", "Fragmentation Missiles", "Plasma Burster Missiles", "Minelayer System", "Jet Fuel Homebrew", "Salvo Module"],
+                "mods_pattern": [3, 2, 2, 2, 3],
+                "image": "./resources/images/rocket_launcher.png"
+            }
+        ],
+
+        "secondaries": [
+            {
+                "name": "\"Bulldog\" Heavy Revolver",
+                "overclocks": ["Chain Hit", "Homebrew Powder", "Volatile Bullets", "Six Shooter", "Elephant Rounds", "Magic Bullets"],
+                "mods_pattern": [2, 3, 3, 2, 2],
+                "image": "./resources/images/revolver.png"
+            },
+
+            {
+                "name": "BRT7 Burst Fire Gun",
+                "overclocks": ["Composite Casings", "Full Chamber Seal", "Compact Mags", "Experimental Rounds", "Electro Minelets", "Micro Flechettes", "Lead Spray"],
+                "mods_pattern": [3, 3, 2, 3, 2],
+                "image": "./resources/images/brt7.png"
+            },
+
+            {
+                "name": "ArmsKore Coil Gun",
+                "overclocks": ["Re-atomizer", "Ultra-Magnetic Coils", "Backfeeding Module", "The Mole", "Hellfire", "Triple-Tech Chambers"],
+                "mods_pattern": [3, 3, 2, 2, 3],
+                "image": "./resources/images/coilgun.png"
+            }
+        ],
+
+        "first_gadget": {
+            "name": "Zipline Launcher",
+            "mods_pattern": [3, 1, 2],
+            "image": "./resources/images/zipline.png"
+        },
+
+        "second_gadget": {
+            "name": "Shield Generator",
+            "mods_pattern": [2, 2, 3],
+            "image": "./resources/images/shield.png"
+        },
+
+        "grenades": {
+            "names": ["Sticky grenade", "Incendiary grenade", "Cluster grenade"],
+            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
+        }
     },
 
     "driller": {
-        
+        "primaries": [
+            {
+                "name": "CRSPR Flamethrower",
+                "overclocks": ["Lighter Tanks", "Sticky Additive", "Compact Feed Valves", "Fuel Stream Diffuser", "Face Melter", "Sticky Fuel"],
+                "mods_pattern": [2, 3, 3, 3, 2],
+                "image": "./resources/images/flamethrower.png"
+            },
+            
+            {
+                "name": "Cryo Cannon",
+                "overclocks": ["Improved Thermal Efficiency", "Tuned Cooler", "Flow Rate Expansion", "Ice Spear", "Ice Storm", "Snowball"],
+                "mods_pattern": [3, 3, 2, 3, 2],
+                "image": "./resources/images/cryo.png"
+            },
+
+            {
+                "name": "Corrosive Sludge Pump",
+                "overclocks": ["Hydrogen Ion Additive", "AG Mixture", "Volatile Impact Mixture", "Disperser Compound", "Goo Bomber Special", "Sludge Blast"],
+                "mods_pattern": [3, 3, 2, 2, 2],
+                "image": "./resources/images/sludge.png"
+            }
+        ],
+
+        "secondaries": [
+            {
+                "name": "Subata 120",
+                "overclocks": ["Chain Hit", "Homebrew Powder", "Oversized Magazine", "Automatic Fire", "Explosive Reload", "Tranquilizer Rounds"],
+                "mods_pattern": [3, 2, 3, 2, 2],
+                "image": "./resources/images/subata.png"
+            },
+
+            {
+                "name": "Experimental Plasma Charger",
+                "overclocks": ["Energy Rerouting", "Magnetic Cooling Unit", "Heat Pipe", "Heavy Hitter", "Overcharger", "Persistent Plasma"],
+                "mods_pattern": [3, 2, 3, 3, 3],
+                "image": "./resources/images/epc.png"
+            },
+
+            {
+                "name": "Colette Wave Cooker",
+                "overclocks": ["Liquid Cooling System", "Super Focus Lens", "Diffusion Ray", "Mega Power Supply", "Blistering Necrosis", "Gamma Contamination"],
+                "mods_pattern": [3, 3, 2, 2, 3],
+                "image": "./resources/images/cooker.png"
+            }
+        ],
+
+        "first_gadget": {
+            "name": "Reinforced Power Drills",
+            "mods_pattern": [3, 2, 1, 2],
+            "image": "./resources/images/drills.png"
+        },
+
+        "second_gadget": {
+            "name": "Satchel Charge",
+            "mods_pattern": [3, 1, 2, 3],
+            "image": "./resources/images/satchel.png"
+        },
+
+        "grenades": {
+            "names": ["Impact Axe", "High Explosive Grenade", "Neurotoxin Grenade"],
+            "images": ["./resources/images/axe.png", "./resources/images/he.png", "./resources/images/neurotoxin.png"]
+        }
     },
 
     "pickaxe": {
