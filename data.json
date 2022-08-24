@@ -67,65 +67,65 @@
     "scout": {
         "primaries": [
             {
-                "name": "\"Lead Storm\" Powered Minigun",
-                "overclocks": ["A Little More Oomph!", "Thinned Drum Walls", "Burning Hell", "Compact Feed Mechanism", "Exhaust Vectoring", "Bullet Hell", "Lead Storm"],
-                "mods_pattern": [3, 2, 3, 3, 3],
-                "image": "./resources/images/minigun.png"
+                "name": "Deepcore GK2",
+                "overclocks": ["Compact Ammo", "Gas Rerouting", "Homebrew Powder", "Overclocked Firing Mechanism", "Bullets of Mercy", "AI Stability Engine", "Electrifying Reload"],
+                "mods_pattern": [2, 2, 3, 3, 3],
+                "image": "./resources/images/gk2.png"
             },
             
             {
-                "name": "\"Thunderhead\" Heavy Autocannon",
-                "overclocks": ["Composite Drums", "Splintering Shells", "Carpet Bomber", "Combat Mobility", "Big Bertha", "Neurotoxin Payload"],
-                "mods_pattern": [3, 3, 3, 2, 3],
-                "image": "./resources/images/autocannon.png"
+                "name": "M1000 Classic",
+                "overclocks": ["Hoverclock", "Minimal Clips", "Active Stability System", "Hipster", "Electrocuting Focus Shots", "Supercooling Chamber"],
+                "mods_pattern": [2, 3, 2, 2, 3],
+                "image": "./resources/images/m1000.png"
             },
 
             {
-                "name": "\"Hurricane\" Guided Rocket System",
-                "overclocks": ["Manual Guidance Cutoff", "Overtuned Feed Mechanism", "Fragmentation Missiles", "Plasma Burster Missiles", "Minelayer System", "Jet Fuel Homebrew", "Salvo Module"],
-                "mods_pattern": [3, 2, 2, 2, 3],
-                "image": "./resources/images/rocket_launcher.png"
+                "name": "DRAK-25 Plasma Carbine",
+                "overclocks": ["Aggressive Venting", "Thermal Liquid Coolant", "Impact Deflection", "Rewiring Mod", "Overtuned Particle Accelerator", "Shield Battery Booster", "Thermal Exhaust Feedback"],
+                "mods_pattern": [3, 2, 3, 3, 2],
+                "image": "./resources/images/drak.png"
             }
         ],
 
         "secondaries": [
             {
-                "name": "\"Bulldog\" Heavy Revolver",
-                "overclocks": ["Chain Hit", "Homebrew Powder", "Volatile Bullets", "Six Shooter", "Elephant Rounds", "Magic Bullets"],
-                "mods_pattern": [2, 3, 3, 2, 2],
-                "image": "./resources/images/revolver.png"
+                "name": "Jury-Rigged Boomstick",
+                "overclocks": ["Compact Shells", "Double Barrel", "Special Powder", "Stuffed Shells", "Shaped Shells", "Jumbo Shells"],
+                "mods_pattern": [2, 2, 3, 3, 3],
+                "image": "./resources/images/boomstick.png"
             },
 
             {
-                "name": "BRT7 Burst Fire Gun",
-                "overclocks": ["Composite Casings", "Full Chamber Seal", "Compact Mags", "Experimental Rounds", "Electro Minelets", "Micro Flechettes", "Lead Spray"],
-                "mods_pattern": [3, 3, 2, 3, 2],
-                "image": "./resources/images/brt7.png"
+                "name": "Zhukov NUK17",
+                "overclocks": ["Minimal Magazines", "Custom Casings", "Cryo Minelets", "Embedded Detonators", "Gas Recycling"],
+                "mods_pattern": [2, 3, 2, 3, 2],
+                "image": "./resources/images/zhukov.png"
             },
 
             {
-                "name": "ArmsKore Coil Gun",
-                "overclocks": ["Re-atomizer", "Ultra-Magnetic Coils", "Backfeeding Module", "The Mole", "Hellfire", "Triple-Tech Chambers"],
+                "name": "Nishanka Boltshark X-80",
+                "overclocks": ["Quick Fire", "The Specialist", "Cryo Bolt", "Fire Bolt", "Bodkin Points", "Trifork Volley"],
                 "mods_pattern": [3, 3, 2, 2, 3],
-                "image": "./resources/images/coilgun.png"
+                "image": "./resources/images/crossbow.png"
             }
         ],
 
         "first_gadget": {
-            "name": "Zipline Launcher",
-            "mods_pattern": [3, 1, 2],
-            "image": "./resources/images/zipline.png"
+            "name": "Grappling Hook",
+            "mods_pattern": [2, 1, 2, 3],
+            "image": "./resources/images/hook.png"
         },
 
         "second_gadget": {
-            "name": "Shield Generator",
+            "name": "Flare Gun",
             "mods_pattern": [2, 2, 3],
-            "image": "./resources/images/shield.png"
+            "image": "./resources/images/flare_gun.png"
         },
 
         "grenades": {
-            "names": ["Sticky Grenade", "Incendiary Grenade", "Cluster Grenade"],
-            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
+            "names": ["Inhibitor-Field Generator", "Cryo Grenade", "Pheromone Canister"],
+            "images": ["./resources/images/ifg.png", "./resources/images/cryo_grenade.png", "./resources/images/pheromone.png"]
         }
     },
 
@@ -207,7 +207,7 @@
                 "name": "Cryo Cannon",
                 "overclocks": ["Improved Thermal Efficiency", "Tuned Cooler", "Flow Rate Expansion", "Ice Spear", "Ice Storm", "Snowball"],
                 "mods_pattern": [3, 3, 2, 3, 2],
-                "image": "./resources/images/cryo.png"
+                "image": "./resources/images/cryo_cannon.png"
             },
 
             {
