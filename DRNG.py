@@ -165,6 +165,7 @@ def main():
     Button(root, text="Randomise loadout for selected class", command=lambda : display_loadout(selected_class.get(), data, root, loadout_labels)).grid(column=1, row=1, padx=40, pady=10)
     Button(root, text="Randomise class and loadout", command=lambda : display_loadout(DWARF_CLASSES[randrange(len(DWARF_CLASSES))], data, root, loadout_labels)).grid(column=2, row=1, padx=40, pady=10)
     #TODO: add class display or change button pressed
+    #TODO: add icon for the app
 
     root.mainloop()
 
