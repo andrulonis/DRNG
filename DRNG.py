@@ -78,7 +78,7 @@ def display_loadout(selected_class, data, root, loadout_labels):
     loadout_labels.append(primary_label := Label(loadout_frame, text=loadout.primary.name + "\n" + loadout.primary.overclock + " " + " ".join(map(str, loadout.primary.mods_pattern))))
     primary_label.grid(column=0, row=2, padx=10, pady=10)
 
-    global primary_image
+    global primary_image # All globals in this function have to be defined that way due to garbage collector removing images
     primary_image = ImageTk.PhotoImage(Image.open(loadout.primary.image))
     loadout_labels.append(primary_image_label := Label(loadout_frame, image=primary_image))
     primary_image_label.grid(column=1, row=2, padx=10, pady=10)
@@ -165,8 +165,7 @@ def main():
 
     loadout_labels = []
     Button(root, text="Randomise loadout for selected class", command=lambda : display_loadout(selected_class.get(), data, root, loadout_labels)).grid(column=1, row=1, padx=40, pady=10)
-    Button(root, text="Randomise class and loadout", command=lambda : display_loadout(DWARF_CLASSES[randrange(len(DWARF_CLASSES))], data, root, loadout_labels)).grid(column=2, row=1, padx=40, pady=10)
-    #TODO: add class display or change button pressed
+    Button(root, text="Randomise class and loadout", command=lambda : [selected_class.set(DWARF_CLASSES[randrange(len(DWARF_CLASSES))]), display_loadout(selected_class.get(), data, root, loadout_labels)]).grid(column=2, row=1, padx=40, pady=10)
 
     root.mainloop()
 
