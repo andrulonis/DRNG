@@ -65,6 +65,9 @@ def randomise_loadout(dwarf_class, data):
     return Loadout(primary_weapon, secondary_weapon, first_gadget, second_gadget, grenade, armor, pickaxe, passive_perks, active_perks)
 
 def display_loadout(selected_class, data, root, loadout_labels):
+    if (not selected_class):
+        return
+    
     loadout = randomise_loadout(selected_class, data)
     
     for label in loadout_labels:
@@ -75,7 +78,7 @@ def display_loadout(selected_class, data, root, loadout_labels):
     loadout_frame.grid(column=0, row=2, columnspan=4)
     loadout_frame.grid_columnconfigure((0, 1, 2, 3), weight = 1, uniform="uniform")
 
-    loadout_labels.append(primary_label := Label(loadout_frame, text=loadout.primary.name + "\n" + loadout.primary.overclock + " " + " ".join(map(str, loadout.primary.mods_pattern))))
+    loadout_labels.append(primary_label := Label(loadout_frame, text=loadout.primary.name + "\n" + loadout.primary.overclock + "\n" + " ".join(map(str, loadout.primary.mods_pattern))))
     primary_label.grid(column=0, row=2, padx=10, pady=10)
 
     global primary_image # All globals in this function have to be defined that way due to garbage collector removing images
@@ -83,7 +86,7 @@ def display_loadout(selected_class, data, root, loadout_labels):
     loadout_labels.append(primary_image_label := Label(loadout_frame, image=primary_image))
     primary_image_label.grid(column=1, row=2, padx=10, pady=10)
 
-    loadout_labels.append(secondary_label := Label(loadout_frame, text=loadout.secondary.name + "\n" + loadout.secondary.overclock + " " + " ".join(map(str, loadout.secondary.mods_pattern))))
+    loadout_labels.append(secondary_label := Label(loadout_frame, text=loadout.secondary.name + "\n" + loadout.secondary.overclock + "\n" + " ".join(map(str, loadout.secondary.mods_pattern))))
     secondary_label.grid(column=2, row=2, padx=10, pady=10)
 
     global secondary_image
@@ -146,22 +149,21 @@ def main():
     icon = ImageTk.PhotoImage(file="./resources/icons/dice.png")
     root.iconphoto(False, icon)
     root.resizable(False, False)
-    root.geometry("1000x750")
+    root.geometry("1000x700")
     root.grid()
     root.grid_columnconfigure((0, 1, 2, 3), weight = 1)
-    selected_class = StringVar(root, "gunner")
-
+    
+    selected_class = StringVar(root)
     buttons_frame = Frame(root)
     buttons_frame.grid(column=0, row=0, columnspan=4)
-
     gunner_icon = PhotoImage(file="./resources/icons/gunner_icon.png")
     scout_icon = PhotoImage(file="./resources/icons/scout_icon.png")
     engineer_icon = PhotoImage(file="./resources/icons/engineer_icon.png")
     driller_icon = PhotoImage(file="./resources/icons/driller_icon.png")
-    Radiobutton(buttons_frame, value="gunner", image=gunner_icon, indicatoron=0, variable=selected_class).grid(column=0, row=0, padx=50, pady=20)
-    Radiobutton(buttons_frame, value="scout", image=scout_icon, indicatoron=0, variable=selected_class).grid(column=1, row=0, padx=50, pady=20)
-    Radiobutton(buttons_frame, value="engineer", image=engineer_icon, indicatoron=0, variable=selected_class).grid(column=2, row=0, padx=50, pady=20)
-    Radiobutton(buttons_frame, value="driller", image=driller_icon, indicatoron=0, variable=selected_class).grid(column=3, row=0, padx=50, pady=20)
+    Radiobutton(buttons_frame, bg="green", value="gunner", image=gunner_icon, indicatoron=0, variable=selected_class).grid(column=0, row=0, padx=50, pady=20)
+    Radiobutton(buttons_frame, bg="blue", value="scout", image=scout_icon, indicatoron=0, variable=selected_class).grid(column=1, row=0, padx=50, pady=20)
+    Radiobutton(buttons_frame, bg="red", value="engineer", image=engineer_icon, indicatoron=0, variable=selected_class).grid(column=2, row=0, padx=50, pady=20)
+    Radiobutton(buttons_frame, bg="yellow", value="driller", image=driller_icon, indicatoron=0, variable=selected_class).grid(column=3, row=0, padx=50, pady=20)
 
     loadout_labels = []
     Button(root, text="Randomise loadout for selected class", command=lambda : display_loadout(selected_class.get(), data, root, loadout_labels)).grid(column=1, row=1, padx=40, pady=10)
@@ -170,6 +172,7 @@ def main():
     root.mainloop()
 
     fp.close()
+    #TODO: app init in separate class
 
 if __name__ == "__main__":
     main()
