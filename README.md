@@ -5,7 +5,7 @@
  Every single piece of equipment is randomised - the weapons, gadgets, armor, pickaxe and perks. Even the class can be randomised.
 
 ## How to run
- .exe file is in the root directory and is the only file needed to run the application. Windows will most likely flag the file and block it. You can either allow the file or clone the repository and create the app using for example `pyinstaller`.
+ .exe file is available in the releases tab and is the only file needed to run the application. Windows will most likely flag the file and block it. You can either allow the file or download the source code and create the app using for example `pyinstaller`.
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/48800417/187096899-881537d6-e716-4ecd-aabf-d9e3e846ecce.png)
