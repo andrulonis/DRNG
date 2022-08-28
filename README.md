@@ -1,5 +1,4 @@
-# DRNG
- Loadout randomiser for DRG
+# DRNG - Loadout randomiser for DRG
 ## Description
  DRNG is an application designed for Deep Rock Galactic players that want to spice up their experience by randomising the loadout they deploy in the game.
  Every single piece of equipment is randomised - the weapons, gadgets, armor, pickaxe and perks. Even the class can be randomised.
