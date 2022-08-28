@@ -170,7 +170,7 @@ PICKAXE_IMAGE = resource_path("./resources/images/pickaxe.png")
 DWARF_CLASSES = ["gunner", "scout", "engineer", "driller"]
 
 def main():
-    fp = open(resource_path("./data.json"))
+    fp = open(resource_path("./resources/data.json"))
     data = json.load(fp)
 
     root = Tk()
