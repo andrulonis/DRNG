@@ -7,6 +7,6 @@
  .exe file is available in the releases tab and is the only file needed to run the application. Windows will most likely flag the file and block it. You can either allow the file or download the source code and create the app using for example `pyinstaller`.
 
 ## Screenshots
-![image](https://user-images.githubusercontent.com/48800417/187096899-881537d6-e716-4ecd-aabf-d9e3e846ecce.png)
-![image](https://user-images.githubusercontent.com/48800417/187096910-fc77e87a-8914-4291-a4f9-1f5ec72a46b2.png)
-![image](https://user-images.githubusercontent.com/48800417/187096918-22a178cc-81fe-4f9d-948c-5570a858e2b5.png)
+![image](https://user-images.githubusercontent.com/48800417/188697692-0ba6e2d6-325e-4b13-8574-6b372f01c8af.png)
+![image](https://user-images.githubusercontent.com/48800417/188697737-c8d0a95e-0185-4bfb-9eea-db836d360717.png)
+![image](https://user-images.githubusercontent.com/48800417/188697793-2a57abb8-6393-4449-964e-9e6d6654d04e.png)
