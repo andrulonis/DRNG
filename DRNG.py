@@ -5,18 +5,52 @@ import json
 import sys
 import os
 
+DWARF_CLASSES = ["gunner", "scout", "engineer", "driller"]
+
+class Weapon:
+    def __init__(self, name, overclock, mods_pattern, image):
+        self.name = name
+        self.overclock = overclock
+        self.mods_pattern = mods_pattern
+        self.image = image
+
+class Gadget:
+    def __init__(self, name, mods_pattern, image):
+        self.name = name
+        self.mods_pattern = mods_pattern
+        self.image = image
+
+class Grenade:
+    def __init__(self, name, image):
+        self.name = name
+        self.image = image
+
+class Loadout:
+    def __init__(self, primary, secondary, first_gadget, second_gadget, grenade, armor, pickaxe, passive_perks, active_perks):
+        self.primary = primary
+        self.secondary = secondary
+        self.first_gadget = first_gadget
+        self.second_gadget = second_gadget
+        self.grenade = grenade
+        self.armor = armor
+        self.pickaxe = pickaxe
+        self.passive_perks = passive_perks
+        self.active_perks = active_perks
+
 class Main_Application:
     def __init__(self, root, data):
-        root.title("DRNG")
-        icon = ImageTk.PhotoImage(file=resource_path("./resources/icons/dice.ico"))
-        root.iconphoto(False, icon)
-        root.resizable(False, False)
-        root.geometry("1000x700")
-        root.grid()
-        root.grid_columnconfigure((0, 1, 2, 3), weight = 1)
+        self.data = data
+        self.root = root
+        self.root.title("DRNG")
+        icon = ImageTk.PhotoImage(file=resource_path("./resources/icons/icon.ico"))
+        self.root.iconphoto(False, icon)
+        self.root.resizable(False, False)
+        self.root.geometry("1000x700")
+        self.root.grid()
+        self.root.grid_columnconfigure((0, 1, 2, 3), weight = 1)
         
-        self.selected_class = StringVar(root)
-        buttons_frame = Frame(root)
+        self.selected_class = StringVar(self.root)
+        buttons_frame = Frame(self.root)
         buttons_frame.grid(column=0, row=0, columnspan=4)
         self.gunner_icon = PhotoImage(file=resource_path("./resources/icons/gunner_icon.png"))
         self.scout_icon = PhotoImage(file=resource_path("./resources/icons/scout_icon.png"))
@@ -28,20 +62,20 @@ class Main_Application:
         Radiobutton(buttons_frame, bg="yellow", value="driller", image=self.driller_icon, indicatoron=0, variable=self.selected_class).grid(column=3, row=0, padx=50, pady=20)
 
         loadout_labels = []
-        Button(root, text="Randomise loadout for selected class", command=lambda : self.display_loadout(data, root, loadout_labels)).grid(column=1, row=1, padx=40, pady=10)
-        Button(root, text="Randomise class and loadout", command=lambda : [self.selected_class.set(DWARF_CLASSES[randrange(len(DWARF_CLASSES))]), self.display_loadout(data, root, loadout_labels)]).grid(column=2, row=1, padx=40, pady=10)
+        Button(root, text="Randomise loadout for selected class", command=lambda : self.display_loadout(loadout_labels)).grid(column=1, row=1, padx=40, pady=10)
+        Button(root, text="Randomise class and loadout", command=lambda : [self.selected_class.set(DWARF_CLASSES[randrange(len(DWARF_CLASSES))]), self.display_loadout(loadout_labels)]).grid(column=2, row=1, padx=40, pady=10)
     
-    def display_loadout(self, data, root, loadout_labels):
+    def display_loadout(self, loadout_labels):
         if (not self.selected_class.get()):
             return
         
-        loadout = randomise_loadout(self.selected_class.get(), data)
+        loadout = randomise_loadout(self.selected_class.get(), self.data)
         
         for label in loadout_labels:
             label.grid_forget()
         loadout_labels.clear()
 
-        loadout_frame = Frame(root)
+        loadout_frame = Frame(self.root)
         loadout_frame.grid(column=0, row=2, columnspan=4)
         loadout_frame.grid_columnconfigure((0, 1, 2, 3), weight = 1, uniform="uniform")
 
@@ -83,14 +117,14 @@ class Main_Application:
         loadout_labels.append(pickaxe_label := Label(loadout_frame, text= "Armor Rig\n" + " ".join(map(str, loadout.armor))))
         pickaxe_label.grid(column=2, row=4, padx=10, pady=10)
 
-        self.armor_image = ImageTk.PhotoImage(file=resource_path(data["armor"]["image"]))
+        self.armor_image = ImageTk.PhotoImage(file=resource_path(self.data["armor"]["image"]))
         loadout_labels.append(armor_image_label := Label(loadout_frame, image=self.armor_image))
         armor_image_label.grid(column=3, row=4, padx=10, pady=10)
 
         loadout_labels.append(pickaxe_label := Label(loadout_frame, text= "Pickaxe\n" + " ".join(map(str, loadout.pickaxe))))
         pickaxe_label.grid(column=0, row=5, padx=10, pady=10)
 
-        self.pickaxe_image = ImageTk.PhotoImage(file=resource_path(data["pickaxe"]["image"]))
+        self.pickaxe_image = ImageTk.PhotoImage(file=resource_path(self.data["pickaxe"]["image"]))
         loadout_labels.append(pickaxe_image_label := Label(loadout_frame, image=self.pickaxe_image))
         pickaxe_image_label.grid(column=1, row=5, padx=10, pady=10)
 
@@ -99,36 +133,6 @@ class Main_Application:
 
         loadout_labels.append(active_perks_label := Label(loadout_frame, text= "Active perks:\n" + "\n".join(map(str, loadout.active_perks))))
         active_perks_label.grid(column=3, row=5, padx=10, pady=10)
-
-class Weapon:
-    def __init__(self, name, overclock, mods_pattern, image):
-        self.name = name
-        self.overclock = overclock
-        self.mods_pattern = mods_pattern
-        self.image = image
-
-class Gadget:
-    def __init__(self, name, mods_pattern, image):
-        self.name = name
-        self.mods_pattern = mods_pattern
-        self.image = image
-
-class Grenade:
-    def __init__(self, name, image):
-        self.name = name
-        self.image = image
-
-class Loadout:
-    def __init__(self, primary, secondary, first_gadget, second_gadget, grenade, armor, pickaxe, passive_perks, active_perks):
-        self.primary = primary
-        self.secondary = secondary
-        self.first_gadget = first_gadget
-        self.second_gadget = second_gadget
-        self.grenade = grenade
-        self.armor = armor
-        self.pickaxe = pickaxe
-        self.passive_perks = passive_perks
-        self.active_perks = active_perks
 
 def randomise_loadout(dwarf_class, data):
     random_primary = data[dwarf_class]["primaries"][randrange(len(data[dwarf_class]["primaries"]))]
@@ -154,6 +158,7 @@ def randomise_loadout(dwarf_class, data):
 
     return Loadout(primary_weapon, secondary_weapon, first_gadget, second_gadget, grenade, armor, pickaxe, passive_perks, active_perks)
 
+# Function needed for pyinstaller to bundle everything into one standalone .exe
 def resource_path(relative_path):
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
@@ -162,12 +167,6 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
 
     return os.path.join(base_path, relative_path)
-
-ARMOR_MODS_PATTERN = [3, 2, 1, 3]
-PICKAXE_MODS_PATTERN = [1, 3]
-ARMOR_IMAGE = resource_path("./resources/images/armor.png")
-PICKAXE_IMAGE = resource_path("./resources/images/pickaxe.png")
-DWARF_CLASSES = ["gunner", "scout", "engineer", "driller"]
 
 def main():
     fp = open(resource_path("./resources/data.json"))
