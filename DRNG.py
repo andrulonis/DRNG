@@ -1,5 +1,6 @@
 from random import randint, randrange, sample
 from tkinter import *
+from typing import List
 from PIL import ImageTk
 import json
 import sys
@@ -9,18 +10,20 @@ DWARF_CLASSES = ["gunner", "scout", "engineer", "driller"]
 
 
 class Weapon:
-    def __init__(self, name, overclock, mods_pattern, image):
-        self.name = name
-        self.overclock = overclock
-        self.mods_pattern = mods_pattern
-        self.image = image
+    def __init__(self, data):
+        """Chooses random mods_pattern and overclock for the Weapon"""
+        self.name = data["name"]
+        self.overclock = data["overclocks"][randrange(len(data["overclocks"]))]
+        self.mods_pattern = [randint(1, mod) for mod in data["mods_pattern"]]
+        self.image = data["image"]
 
 
 class Gadget:
-    def __init__(self, name, mods_pattern, image):
-        self.name = name
-        self.mods_pattern = mods_pattern
-        self.image = image
+    def __init__(self, data):
+        """Chooses random mods_pattern for the Gadget"""
+        self.name = data["name"]
+        self.mods_pattern = [randint(1, mod) for mod in data["mods_pattern"]]
+        self.image = data["image"]
 
 
 class Grenade:
@@ -32,11 +35,11 @@ class Grenade:
 class Loadout:
     def __init__(
         self,
-        primary,
-        secondary,
-        first_gadget,
-        second_gadget,
-        grenade,
+        primary: Weapon,
+        secondary: Weapon,
+        first_gadget: Gadget,
+        second_gadget: Gadget,
+        grenade: Grenade,
         armor,
         pickaxe,
         passive_perks,
@@ -142,16 +145,17 @@ class Main_Application:
         loadout_frame.grid(column=0, row=2, columnspan=4)
         loadout_frame.grid_columnconfigure((0, 1, 2, 3), weight=1, uniform="uniform")
 
-        loadout_labels.append(
-            primary_label := Label(
+        def make_list(mods: List) -> str:
+            return " ".join(map(str, mods))
+
+        def make_label(weapon: Weapon) -> Label:
+            """Creates a label for the weapon in the loadout_frame"""
+            return Label(
                 loadout_frame,
-                text=loadout.primary.name
-                + "\n"
-                + loadout.primary.overclock
-                + "\n"
-                + " ".join(map(str, loadout.primary.mods_pattern)),
+                text=f"{weapon.name}\n{weapon.overclock}\n{make_list(weapon.mods_pattern)}",
             )
-        )
+
+        loadout_labels.append(primary_label := make_label(loadout.primary))
         primary_label.grid(column=0, row=2, padx=10, pady=10)
 
         self.primary_image = ImageTk.PhotoImage(
@@ -163,14 +167,7 @@ class Main_Application:
         primary_image_label.grid(column=1, row=2, padx=10, pady=10)
 
         loadout_labels.append(
-            secondary_label := Label(
-                loadout_frame,
-                text=loadout.secondary.name
-                + "\n"
-                + loadout.secondary.overclock
-                + "\n"
-                + " ".join(map(str, loadout.secondary.mods_pattern)),
-            )
+            secondary_label := make_label(loadout.secondary),
         )
         secondary_label.grid(column=2, row=2, padx=10, pady=10)
 
@@ -182,13 +179,15 @@ class Main_Application:
         )
         secondary_image_label.grid(column=3, row=2, padx=10, pady=10)
 
-        loadout_labels.append(
-            first_gadget_label := Label(
+        def make_gadget_label(gadget: Gadget) -> Label:
+            """Creates a label for the gadget in the loadout_frame"""
+            return Label(
                 loadout_frame,
-                text=loadout.first_gadget.name
-                + "\n"
-                + " ".join(map(str, loadout.first_gadget.mods_pattern)),
+                text=f"{gadget.name}\n{make_list(gadget.mods_pattern)}",
             )
+
+        loadout_labels.append(
+            first_gadget_label := make_gadget_label(loadout.first_gadget)
         )
         first_gadget_label.grid(column=0, row=3, padx=10, pady=10)
 
@@ -203,12 +202,7 @@ class Main_Application:
         first_gadget_image_label.grid(column=1, row=3, padx=10, pady=10)
 
         loadout_labels.append(
-            second_gadget_label := Label(
-                loadout_frame,
-                text=loadout.second_gadget.name
-                + "\n"
-                + " ".join(map(str, loadout.second_gadget.mods_pattern)),
-            )
+            second_gadget_label := make_gadget_label(loadout.second_gadget)
         )
         second_gadget_label.grid(column=2, row=3, padx=10, pady=10)
 
@@ -276,7 +270,7 @@ class Main_Application:
         loadout_labels.append(
             active_perks_label := Label(
                 loadout_frame,
-                text="Active perks:\n" + "\n".join(map(str, loadout.active_perks)),
+                text="\n".join(["Active perks:", *map(str, loadout.active_perks)]),
             )
         )
         active_perks_label.grid(column=3, row=5, padx=10, pady=10)
@@ -287,33 +281,19 @@ def randomise_loadout(dwarf_class, data):
         randrange(len(data[dwarf_class]["primaries"]))
     ]
     primary_weapon = Weapon(
-        random_primary["name"],
-        random_primary["overclocks"][randrange(len(random_primary["overclocks"]))],
-        [randint(1, mod) for mod in random_primary["mods_pattern"]],
-        random_primary["image"],
+        random_primary,
     )
 
     random_secondary = data[dwarf_class]["secondaries"][
         randrange(len(data[dwarf_class]["secondaries"]))
     ]
     secondary_weapon = Weapon(
-        random_secondary["name"],
-        random_secondary["overclocks"][randrange(len(random_secondary["overclocks"]))],
-        [randint(1, mod) for mod in random_secondary["mods_pattern"]],
-        random_secondary["image"],
+        random_secondary,
     )
 
-    first_gadget = Gadget(
-        data[dwarf_class]["first_gadget"]["name"],
-        [randint(1, mod) for mod in data[dwarf_class]["first_gadget"]["mods_pattern"]],
-        data[dwarf_class]["first_gadget"]["image"],
-    )
+    first_gadget = Gadget(data[dwarf_class]["first_gadget"])
 
-    second_gadget = Gadget(
-        data[dwarf_class]["second_gadget"]["name"],
-        [randint(1, mod) for mod in data[dwarf_class]["second_gadget"]["mods_pattern"]],
-        data[dwarf_class]["second_gadget"]["image"],
-    )
+    second_gadget = Gadget(data[dwarf_class]["second_gadget"])
 
     random_grenade = randrange(len(data[dwarf_class]["grenades"]["names"]))
     grenade = Grenade(
@@ -342,8 +322,11 @@ def randomise_loadout(dwarf_class, data):
     )
 
 
-# Function needed for pyinstaller to bundle everything into one standalone .exe
 def resource_path(relative_path):
+    """
+    Function needed for pyinstaller to bundle everything into one
+    standalone .exe
+    """
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
