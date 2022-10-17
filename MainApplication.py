@@ -1,4 +1,5 @@
 from tkinter import *
+from turtle import back
 from PIL import ImageTk
 import sys
 import os
@@ -28,10 +29,12 @@ class MainApplication:
         self.root.geometry("1000x700")
         self.root.grid()
         self.root.grid_columnconfigure((0, 1, 2, 3), weight=1)
+        self.root.configure(bg="black")
         
         self.selected_class = StringVar(self.root)
         buttons_frame = Frame(self.root)
         buttons_frame.grid(column=0, row=0, columnspan=4)
+        buttons_frame.configure(bg="black")
 
         self.gunner_icon = PhotoImage(file=resource_path("./resources/icons/gunner_icon.png"))
         self.scout_icon = PhotoImage(file=resource_path("./resources/icons/scout_icon.png"))
@@ -39,11 +42,12 @@ class MainApplication:
         self.driller_icon = PhotoImage(file=resource_path("./resources/icons/driller_icon.png"))
 
         Radiobutton(
-            buttons_frame, bg="green", 
+            buttons_frame, 
+            bg="green", 
             value="gunner", 
             image=self.gunner_icon, 
             indicatoron=0, 
-            variable=self.selected_class
+            variable=self.selected_class,
         ).grid(column=0, row=0, padx=50, pady=20)
 
         Radiobutton(
@@ -78,12 +82,20 @@ class MainApplication:
         Button(
             root, 
             text="Randomise loadout for selected class", 
+            bg="black",
+            activebackground="black",
+            fg="white",
+            activeforeground="white",
             command=lambda : self.display_random_loadout(loadout_labels)
         ).grid(column=1, row=1, padx=40, pady=10)
 
         Button(
             root,
             text="Randomise class and loadout",
+            bg="black", 
+            activebackground="black",
+            fg="white",
+            activeforeground="white",
             command=lambda : [self.selected_class.set(DWARF_CLASSES[randrange(len(DWARF_CLASSES))]), 
             self.display_random_loadout(loadout_labels)]
         ).grid(column=2, row=1, padx=40, pady=10)
@@ -99,6 +111,7 @@ class MainApplication:
         loadout_labels.clear()
 
         loadout_frame = Frame(self.root)
+        loadout_frame.configure(bg="black")
         loadout_frame.grid(column=0, row=2, columnspan=4)
         loadout_frame.grid_columnconfigure((0, 1, 2, 3), weight=1, uniform="uniform")
 
@@ -108,19 +121,25 @@ class MainApplication:
         def make_weapon_label(weapon):
             return Label(
                 loadout_frame,
-                text=f"{weapon.name}\n{weapon.overclock}\n{make_list(weapon.mods_pattern)}"
+                text=f"{weapon.name}\n{weapon.overclock}\n{make_list(weapon.mods_pattern)}",
+                bg="black",
+                fg="white"
             )
 
         def make_image_label(image):
             return Label(
                 loadout_frame,
-                image=image
+                image=image,
+                bg="black",
+                fg="white"
             )
         
         def make_gadget_label(gadget):
             return Label(
                 loadout_frame,
-                text=f"{gadget.name}\n{make_list(gadget.mods_pattern)}"
+                text=f"{gadget.name}\n{make_list(gadget.mods_pattern)}",
+                bg="black",
+                fg="white"
             )
         
         def put_item_labels(text_label, image_label, col, row):
@@ -143,16 +162,46 @@ class MainApplication:
         put_item_labels(make_gadget_label(loadout.second_gadget), make_image_label(self.second_gadget_image), 2, 3)
 
         self.grenade_image = ImageTk.PhotoImage(file=resource_path(loadout.grenade.image))
-        put_item_labels(Label(loadout_frame, text=loadout.grenade.name), make_image_label(self.grenade_image), 0, 4)
+        grenade_text_label = Label(
+            loadout_frame, 
+            text=loadout.grenade.name,
+            bg="black",
+            fg="white"
+        )
+        put_item_labels(grenade_text_label, make_image_label(self.grenade_image), 0, 4)
 
         self.armor_image = ImageTk.PhotoImage(file=resource_path(self.data["armor"]["image"]))
-        put_item_labels(Label(loadout_frame, text= f"Armor Rig\n{make_list(loadout.armor)}"), make_image_label(self.armor_image), 2, 4)
+        armor_text_label = Label(
+            loadout_frame, 
+            text= f"Armor Rig\n{make_list(loadout.armor)}",
+            bg="black",
+            fg="white"
+        )
+        put_item_labels(armor_text_label, make_image_label(self.armor_image), 2, 4)
 
         self.pickaxe_image = ImageTk.PhotoImage(file=resource_path(self.data["pickaxe"]["image"]))
-        put_item_labels(Label(loadout_frame, text=f"Pickaxe\n{make_list(loadout.pickaxe)}"), make_image_label(self.pickaxe_image), 0, 5)
+        pickaxe_text_label = Label(
+            loadout_frame, 
+            text=f"Pickaxe\n{make_list(loadout.pickaxe)}",
+            bg="black",
+            fg="white"
+        )
+        put_item_labels(pickaxe_text_label, make_image_label(self.pickaxe_image), 0, 5)
 
-        loadout_labels.append(passive_perks_label := Label(loadout_frame, text="Passive perks:\n" + "\n".join(map(str, loadout.passive_perks))))
+        passive_perks_label = Label(
+            loadout_frame, 
+            text="Passive perks:\n" + "\n".join(map(str, loadout.passive_perks)),
+            bg="black",
+            fg="white"
+        )
+        loadout_labels.append(passive_perks_label)
         passive_perks_label.grid(column=2, row=5, padx=GRID_PAD_VAL, pady=GRID_PAD_VAL)
 
-        loadout_labels.append(active_perks_label := Label(loadout_frame, text= "Active perks:\n" + "\n".join(map(str, loadout.active_perks))))
+        active_perks_label = Label(
+            loadout_frame, 
+            text= "Active perks:\n" + "\n".join(map(str, loadout.active_perks)),
+            bg="black",
+            fg="white"
+        )
+        loadout_labels.append(active_perks_label)
         active_perks_label.grid(column=3, row=5, padx=GRID_PAD_VAL, pady=GRID_PAD_VAL)
