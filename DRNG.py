@@ -1,5 +1,3 @@
-from tkinter import *
-from PIL import ImageTk
 import json
 
 from MainApplication import *

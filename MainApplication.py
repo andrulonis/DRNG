@@ -32,18 +32,61 @@ class MainApplication:
         self.selected_class = StringVar(self.root)
         buttons_frame = Frame(self.root)
         buttons_frame.grid(column=0, row=0, columnspan=4)
+
         self.gunner_icon = PhotoImage(file=resource_path("./resources/icons/gunner_icon.png"))
         self.scout_icon = PhotoImage(file=resource_path("./resources/icons/scout_icon.png"))
         self.engineer_icon = PhotoImage(file=resource_path("./resources/icons/engineer_icon.png"))
         self.driller_icon = PhotoImage(file=resource_path("./resources/icons/driller_icon.png"))
-        Radiobutton(buttons_frame, bg="green", value="gunner", image=self.gunner_icon, indicatoron=0, variable=self.selected_class).grid(column=0, row=0, padx=50, pady=20)
-        Radiobutton(buttons_frame, bg="blue", value="scout", image=self.scout_icon, indicatoron=0, variable=self.selected_class).grid(column=1, row=0, padx=50, pady=20)
-        Radiobutton(buttons_frame, bg="red", value="engineer", image=self.engineer_icon, indicatoron=0, variable=self.selected_class).grid(column=2, row=0, padx=50, pady=20)
-        Radiobutton(buttons_frame, bg="yellow", value="driller", image=self.driller_icon, indicatoron=0, variable=self.selected_class).grid(column=3, row=0, padx=50, pady=20)
+
+        Radiobutton(
+            buttons_frame, bg="green", 
+            value="gunner", 
+            image=self.gunner_icon, 
+            indicatoron=0, 
+            variable=self.selected_class
+        ).grid(column=0, row=0, padx=50, pady=20)
+
+        Radiobutton(
+            buttons_frame, 
+            bg="blue", 
+            value="scout", 
+            image=self.scout_icon, 
+            indicatoron=0, 
+            variable=self.selected_class
+        ).grid(column=1, row=0, padx=50, pady=20)
+
+        Radiobutton(
+            buttons_frame, 
+            bg="red", 
+            value="engineer", 
+            image=self.engineer_icon, 
+            indicatoron=0, 
+            variable=self.selected_class
+        ).grid(column=2, row=0, padx=50, pady=20)
+
+        Radiobutton(
+            buttons_frame, 
+            bg="yellow", 
+            value="driller", 
+            image=self.driller_icon, 
+            indicatoron=0, 
+            variable=self.selected_class
+        ).grid(column=3, row=0, padx=50, pady=20)
 
         loadout_labels = []
-        Button(root, text="Randomise loadout for selected class", command=lambda : self.display_random_loadout(loadout_labels)).grid(column=1, row=1, padx=40, pady=10)
-        Button(root, text="Randomise class and loadout", command=lambda : [self.selected_class.set(DWARF_CLASSES[randrange(len(DWARF_CLASSES))]), self.display_random_loadout(loadout_labels)]).grid(column=2, row=1, padx=40, pady=10)
+        
+        Button(
+            root, 
+            text="Randomise loadout for selected class", 
+            command=lambda : self.display_random_loadout(loadout_labels)
+        ).grid(column=1, row=1, padx=40, pady=10)
+
+        Button(
+            root,
+            text="Randomise class and loadout",
+            command=lambda : [self.selected_class.set(DWARF_CLASSES[randrange(len(DWARF_CLASSES))]), 
+            self.display_random_loadout(loadout_labels)]
+        ).grid(column=2, row=1, padx=40, pady=10)
     
     def display_random_loadout(self, loadout_labels):
         if (not self.selected_class.get()):
