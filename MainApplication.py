@@ -1,5 +1,4 @@
 from tkinter import *
-from turtle import back
 from PIL import ImageTk
 import sys
 import os
