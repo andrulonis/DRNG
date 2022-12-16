@@ -59,8 +59,8 @@
         },
 
         "grenades": {
-            "names": ["Sticky Grenade", "Incendiary Grenade", "Cluster Grenade"],
-            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png"]
+            "names": ["Sticky Grenade", "Incendiary Grenade", "Cluster Grenade", "Tactical Leadburster"],
+            "images": ["./resources/images/sticky.png", "./resources/images/incendiary.png", "./resources/images/cluster.png", "./resources/images/leadburster.png"]
         }
     },
 
@@ -124,8 +124,8 @@
         },
 
         "grenades": {
-            "names": ["Inhibitor-Field Generator", "Cryo Grenade", "Pheromone Canister"],
-            "images": ["./resources/images/ifg.png", "./resources/images/cryo_grenade.png", "./resources/images/pheromone.png"]
+            "names": ["Inhibitor-Field Generator", "Cryo Grenade", "Pheromone Canister", "Voltaic Stun Sweeper"],
+            "images": ["./resources/images/ifg.png", "./resources/images/cryo_grenade.png", "./resources/images/pheromone.png", "./resources/images/sweeper.png"]
         }
     },
 
@@ -189,8 +189,8 @@
         },
 
         "grenades": {
-            "names": ["L.U.R.E.", "Plasma Burster", "Proximity Mine"],
-            "images": ["./resources/images/lure.png", "./resources/images/plasma.png", "./resources/images/mine.png"]
+            "names": ["L.U.R.E.", "Plasma Burster", "Proximity Mine", "Shredder Swarm"],
+            "images": ["./resources/images/lure.png", "./resources/images/plasma.png", "./resources/images/mine.png", "./resources/images/shredder.png"]
         }
     },
 
@@ -254,8 +254,8 @@
         },
 
         "grenades": {
-            "names": ["Impact Axe", "High Explosive Grenade", "Neurotoxin Grenade"],
-            "images": ["./resources/images/axe.png", "./resources/images/he.png", "./resources/images/neurotoxin.png"]
+            "names": ["Impact Axe", "High Explosive Grenade", "Neurotoxin Grenade", "Springloaded Ripper"],
+            "images": ["./resources/images/axe.png", "./resources/images/he.png", "./resources/images/neurotoxin.png", "./resources/images/spring.png"]
         }
     },
 
